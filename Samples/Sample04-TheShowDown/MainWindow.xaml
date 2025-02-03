@@ -1,0 +1,123 @@
+﻿<Window x:Class="Sample04_TheShowDown.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Sample04_TheShowDown"
+        mc:Ignorable="d"
+        Title="Sample 04 - The Show Down" Height="450" SizeToContent="Width" Loaded="Window_Loaded" Closed="Window_Closed">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <TextBlock Grid.Row="0" Text="There can only be one Screen Capturing API in this town, cowboy. Who's faster to the draw? Snapter or Snapture?" Margin="5"/>
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+           
+            <Grid x:Name="SnaptureContender" Width="320">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderThickness="2" BorderBrush="LightGray" Grid.Column="0" Grid.Row="0" Margin="10" CornerRadius="5">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Snapture" TextAlignment="Center" FontWeight="Bold"/>
+                        <Rectangle Grid.Row="1" Fill="LightGray" Height="1" Margin="5"/>
+                  
+                        <!-- test results container -->
+                        <Grid Grid.Row="2" x:Name="SnaptureTestResultsContainer">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                                <RowDefinition Height="auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Row="0" Grid.Column="0" Text="Iterations" TextAlignment="Center" Margin="5,3"/>
+                            <TextBlock Grid.Row="1" Grid.Column="0" Text="Avg. Time" TextAlignment="Center" Margin="5,3"/>
+                            <TextBlock Grid.Row="2" Grid.Column="0" Text="Time" TextAlignment="Center" Margin="5,3"/>
+
+                            <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SnaptureIterations}" TextAlignment="Center" Margin="5,3"/>
+                            <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SnaptureAvgTime}" TextAlignment="Center" Margin="5,3"/>
+                            <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SnaptureTime}" TextAlignment="Center" Margin="5,3"/>
+                            
+                        </Grid>
+                        <!-- Test Configuration -->
+                       
+                    </Grid>
+                </Border>
+            </Grid>
+
+            <Grid x:Name="SnapsterContender" Width="320">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="2" BorderBrush="LightGray" Grid.Column="0" Grid.Row="0" Margin="10" CornerRadius="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Text="Snapster" TextAlignment="Center" FontWeight="Bold"/>
+                    <Rectangle Grid.Row="1" Fill="LightGray" Height="1" Margin="5"/>
+
+                    <!-- test results container -->
+                    <Grid Grid.Row="2" x:Name="SnapsterTestResultsContainer">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Row="0" Grid.Column="0" Text="Iterations" TextAlignment="Center" Margin="5,3"/>
+                        <TextBlock Grid.Row="1" Grid.Column="0" Text="Avg. Time" TextAlignment="Center" Margin="5,3"/>
+                        <TextBlock Grid.Row="2" Grid.Column="0" Text="Time" TextAlignment="Center" Margin="5,3"/>
+
+                        <TextBlock Grid.Row="0" Grid.Column="1" Text="{Binding SnapsterIterations}" TextAlignment="Center" Margin="5,3"/>
+                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{Binding SnapsterAvgTime}" TextAlignment="Center" Margin="5,3"/>
+                        <TextBlock Grid.Row="2" Grid.Column="1" Text="{Binding SnapsterTime}" TextAlignment="Center" Margin="5,3"/>
+                    </Grid>
+                </Grid>
+            </Border>
+    </Grid>
+        
+    </StackPanel>
+        <Grid Grid.Row="2" Height="32">
+            <Grid Margin="5">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Column="0" Grid.Row="0" Text="Iterations" TextAlignment="Center"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Width="150" Height="16" Margin="5,1" Text="{Binding Iterations}"/>
+                <Button Grid.Row="0" Grid.Column="2" Content="Test" x:Name="TestButton" 
+             Width="125" Height="20" Click="TestButton_Click" HorizontalAlignment="Right"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
