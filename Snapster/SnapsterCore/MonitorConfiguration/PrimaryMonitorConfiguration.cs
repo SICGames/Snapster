@@ -22,7 +22,8 @@ namespace com.HellStormGames.Imaging.ScreenCapture
         { 
             _displymonitor = new DisplayMonitor();
             _monitors = _displymonitor.GetMonitors();
-            _monitor = _monitors.FirstOrDefault();
+
+            _monitor = _monitors.Where(m => m.isPrimary == 1 ? true : false).FirstOrDefault();
         }
 
         public void Release()

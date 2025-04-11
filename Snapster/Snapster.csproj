@@ -68,6 +68,14 @@
     <Compile Include="Monitor\DisplayMonitor.cs" />
     <Compile Include="Monitor\DPI.cs" />
     <Compile Include="Monitor\Monitor.cs" />
+    <Compile Include="Native\DisplayConfig.cs" />
+    <Compile Include="Native\DisplayDevice.cs" />
+    <Compile Include="Native\MonitorDpiType.cs" />
+    <Compile Include="Native\MonitorInfoEx.cs" />
+    <Compile Include="Native\NativeMonitors.cs" />
+    <Compile Include="Native\NativePoint.cs" />
+    <Compile Include="Native\NativeRect.cs" />
+    <Compile Include="Native\SnapsterInterlop.cs" />
     <Compile Include="Region\Region.cs" />
     <Compile Include="Snapster.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

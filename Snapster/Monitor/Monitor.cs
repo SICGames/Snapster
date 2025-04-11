@@ -4,7 +4,6 @@ using System.Threading;
 
 namespace com.HellStormGames.Imaging.ScreenCapture
 {
-    [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Unicode, Pack = 4)]
     public struct Monitor
     {
         public Monitor()
@@ -21,11 +20,8 @@ namespace com.HellStormGames.Imaging.ScreenCapture
             isPrimary = 0;
         }
         public Int32 ID;
-        [MarshalAs(UnmanagedType.LPWStr)]
         public String Name;
-        [MarshalAs(UnmanagedType.LPWStr)]
         public String DeviceName;
-        [MarshalAs(UnmanagedType.LPWStr)]
         public String MonitorName;
         public IntPtr MonitorHandle;
         public IntPtr hDCMonitor;

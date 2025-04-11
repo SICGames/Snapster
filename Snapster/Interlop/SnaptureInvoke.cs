@@ -10,16 +10,6 @@ namespace com.HellStormGames.Imaging.ScreenCapture.Interlop
 {
     public class SnaptureInvoke
     {
-        //-- Monitor Info
-        [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
-        public static extern System.IntPtr CreateDisplayMonitorClass();
-        [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
-        public static extern void DestroyDisplayMonitorClass(System.IntPtr ptr);
-        [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
-        public static extern void DisplayMonitorGetMonitors(System.IntPtr ptr, out IntPtr monitors, out uint count);
-        [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
-        public static extern void FreeMemoryResource(System.IntPtr ptr);
-
         //-- Image Data
         [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
         public static extern void CreateImageDataFromHBITMAP(out ImageData ptr, IntPtr hBitmap);
@@ -37,13 +27,12 @@ namespace com.HellStormGames.Imaging.ScreenCapture.Interlop
         //-- Snapster
         [DllImport("libSnapture.dll", ExactSpelling = true, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl, EntryPoint ="CaptureDesktopScreen")]
         [SuppressUnmanagedCodeSecurity]
-        public static extern IntPtr CaptureDesktopScreen(Monitor monitor);
+        public static extern IntPtr CaptureDesktopScreen(int x, int y, int width, int height);
         [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
-        public static extern IntPtr CaptureRegion(Monitor monitor, int x, int y, int width, int height);
+        public static extern IntPtr CaptureRegion(int x, int y, int width, int height, int screenBoundsX, int screenBoundsY, int screenBoundsWidth, int screenBoundsHeight);
         [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, EntryPoint ="ReleaseCapturedBitmap")]
         [SuppressUnmanagedCodeSecurity]
         public static extern void ReleaseCapturedBitmap(IntPtr bitmap);
-
         [DllImport("libSnapture.dll", ExactSpelling = true, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
         public static extern int InitDesktopDuplicationCapture(Monitor monitor);
         [DllImport("libSnapture.dll", ExactSpelling = true, CharSet = CharSet.Ansi, CallingConvention = CallingConvention.Cdecl)]
