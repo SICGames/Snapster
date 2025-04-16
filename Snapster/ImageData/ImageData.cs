@@ -18,6 +18,7 @@ namespace com.HellStormGames.Imaging
         public int BitsPerPixel;
         public int RowSize;
         public int Size;
+        public double DPI;
         public IntPtr Data;
         
         public void CreateWindowsLogo()

@@ -12,7 +12,7 @@ namespace com.HellStormGames.Imaging.ScreenCapture.Interlop
     {
         //-- Image Data
         [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
-        public static extern void CreateImageDataFromHBITMAP(out ImageData ptr, IntPtr hBitmap);
+        public static extern void CreateImageDataFromHBITMAP(out ImageData ptr, IntPtr hBitmap, double DPI = 300);
         [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]
         public static extern void CreateImageData(out ImageData imageDataPtr, int width, int height, int channels, byte[] data);
         [DllImport("libSnapture.dll", ExactSpelling = true, CallingConvention = CallingConvention.Cdecl, SetLastError = true)]

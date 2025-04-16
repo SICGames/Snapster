@@ -10,13 +10,13 @@ namespace com.HellStormGames.Imaging.ScreenCapture
 {
     public static class WindowsGDICapturerConfiguration
     {
-        public static SnapsterConfiguration WindowsGDI(this CapturerConfiguration configuration, IMonitorConfiguration monitorConfiguration)
+        public static SnapsterConfiguration WindowsGDI(this CapturerConfiguration configuration, IMonitorConfiguration monitorConfiguration, double DPI = 300)
         {
-            return CreateWindowsGDI(configuration.Commit, monitorConfiguration);
+            return CreateWindowsGDI(configuration.Commit, monitorConfiguration, DPI);
         }
         static SnapsterConfiguration CreateWindowsGDI(
             this Func<ICapturerContext,SnapsterConfiguration> addContext,
-            IMonitorConfiguration monitorConfiguration)
+            IMonitorConfiguration monitorConfiguration, double DPI)
         {
             if (addContext == null)
             {

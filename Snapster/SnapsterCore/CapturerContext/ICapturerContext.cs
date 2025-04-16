@@ -10,5 +10,6 @@ namespace com.HellStormGames.Imaging.ScreenCapture
     {
         public ImageData Commit(CaptureEvent captureEvent);
         public IMonitorConfiguration GetMonitorConfiguration();
+        // public double DPI { get; }
     }
 }

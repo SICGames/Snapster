@@ -30,10 +30,10 @@ namespace com.HellStormGames.Imaging
 
             return imagedata;
         }
-        public static ImageData FromHBitmap(IntPtr hBitmap)
+        public static ImageData FromHBitmap(IntPtr hBitmap, double DPI = 300)
         {
             ImageData image = new ImageData();
-            SnaptureInvoke.CreateImageDataFromHBITMAP(out image, hBitmap);
+            SnaptureInvoke.CreateImageDataFromHBITMAP(out image, hBitmap, DPI);
             return image;
         }
     }

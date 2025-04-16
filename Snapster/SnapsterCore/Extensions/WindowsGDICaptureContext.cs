@@ -10,9 +10,12 @@ namespace com.HellStormGames.Imaging.ScreenCapture
     public class WindowsGDICaptureContext : ICapturerContext, IDisposable
     {
         readonly IMonitorConfiguration _monitorConfiguration;
-        public WindowsGDICaptureContext(IMonitorConfiguration monitorConfiguration) 
+        readonly double _dpi;
+        public double DPI => _dpi;
+        public WindowsGDICaptureContext(IMonitorConfiguration monitorConfiguration, double DPI = 300) 
         { 
             _monitorConfiguration = monitorConfiguration;
+            _dpi = DPI;
         }
 
         public ImageData Commit(CaptureEvent captureEvent)
@@ -36,6 +39,8 @@ namespace com.HellStormGames.Imaging.ScreenCapture
                     _monitorConfiguration.Monitor.ScreenBounds.Width,
                     _monitorConfiguration.Monitor.ScreenBounds.Height);
             }
+
+
             ImageData imagedata = ImageFactory.FromHBitmap(bitmap);
 
             SnaptureInvoke.ReleaseCapturedBitmap(bitmap);

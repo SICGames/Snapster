@@ -30,13 +30,13 @@ namespace Sample02_SmileForTheScreenShot
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            Snapster.Capturer = new SnapsterConfiguration().CapturerContext.WindowsGDI(MonitorConfiguration.MainMonitor).CreateCapturer();
+            Snapster.Capturer = new SnapsterConfiguration().CapturerContext.WindowsGDI(MonitorConfiguration.MainMonitor,900).CreateCapturer();
             var monitorconfig = Snapster.MonitorConfiguration;
 
             var region = new com.HellStormGames.Imaging.Region(250, 0, 1024, 1200);
             var image = Snapster.CaptureDesktop();
-            image.Save("screen-shot-region.png");
-            pictureBox1.Image = Image.FromFile("screen-shot-region.png");
+            image.Save("screen-shot.png");
+            pictureBox1.Image = Image.FromFile("screen-shot.png");
             var screenRect = this.RectangleToScreen(this.ClientRectangle);
             var titlebarHeight = screenRect.Top - this.Top;
             this.Height = image.Height + titlebarHeight + 10;
